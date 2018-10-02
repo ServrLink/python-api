@@ -18,7 +18,7 @@ class ServrLink:
 
         url = self.baseUrl + 'api/discord/isregistered?id=' + id
         with urllib.request.urlopen(url) as res:
-            raw = res.read()
+            raw = res.read().decode('utf-8')
             parsed = json.loads(raw)
 
         return parsed['success'], parsed['registered']
@@ -33,7 +33,7 @@ class ServrLink:
 
         url = self.baseUrl + 'api/minecraft/isregistered?uuid=' + id
         with urllib.request.urlopen(url) as res:
-            raw = res.read()
+            raw = res.read().decode('utf-8')
             parsed = json.loads(raw)
 
         return parsed['success'], parsed['registered']
@@ -48,7 +48,7 @@ class ServrLink:
 
         url = self.baseUrl + 'api/minecraft/getid?uuid=' + uuid
         with urllib.request.urlopen(url) as res:
-            raw = res.read()
+            raw = res.read().decode('utf-8')
             parsed = json.loads(raw)
 
         return parsed['success'], parsed['id']
@@ -63,7 +63,7 @@ class ServrLink:
 
         url = self.baseUrl + 'api/discord/getuuid?id=' + id
         with urllib.request.urlopen(url) as res:
-            raw = res.read()
+            raw = res.read().decode('utf-8')
             parsed = json.loads(raw)
 
         return parsed['success'], parsed['uuid']
